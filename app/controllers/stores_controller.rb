@@ -5,6 +5,7 @@ class StoresController < ApplicationController
   end
 
   def create
+    binding.pry
     store = Store.create(store_params)
     redirect_to store_path(store)
   end

@@ -16,20 +16,19 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/">WineFinder</a>
         </div>
-        <% binding.pry %>
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li> <%= link_to "Profile", user_path(current_user) %> </li>
+            <li> <%= link_to "Store", store_path(current_user.store) if current_user.store%> </li>
           <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><a href=<%= destroy_user_session_path %>><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            <li> <%= link_to "Logout", destroy_user_session_path %></li>
+            <li> <%= link_to destroy_user_session_path, method: "DELETE" do %><span class="glyphicon glyphicon-log-out"></span> Logout<% end %></li>
           <% else %>
-            <li><a href=<%= new_user_registration_path %> ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href=<%= new_user_session_path %>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            <li><a href=<%= new_user_session_path %>><i class="fa fa-facebook-square"></i> Login via Facebook</a></li>
+            <li><a href="<%= new_user_registration_path %>" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="<%= user_facebook_omniauth_authorize_path %>"><i class="fa fa-facebook-square"></i> Login via Facebook</a></li>
           <% end %>
         </ul>
       </div>
