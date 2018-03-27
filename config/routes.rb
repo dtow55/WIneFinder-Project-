@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   
   root 'application#home'
   resources :users, only: [:show, :edit, :update]
+  resources :stores, only: [:new, :create, :show, :edit, :update]
 end

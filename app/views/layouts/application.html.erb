@@ -6,21 +6,37 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
     <!--  navbar -->
-    <ul class="nav navbar-nav navbar-fixed-top navbar-default">
-    <li id="logo"> <a href='/'>WineFinder</a> </li>
-    <% if user_signed_in? %>
-      <li> <%= link_to "Profile", user_path(current_user) %> </li>
-      <li> <%= link_to "Sign Out", destroy_user_session_path, method: "DELETE" %> </li>
-    <% end %>
-    </ul><br><br>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">WineFinder</a>
+        </div>
+        <% binding.pry %>
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li> <%= link_to "Profile", user_path(current_user) %> </li>
+          <% end %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><a href=<%= destroy_user_session_path %>><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            <li> <%= link_to "Logout", destroy_user_session_path %></li>
+          <% else %>
+            <li><a href=<%= new_user_registration_path %> ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href=<%= new_user_session_path %>><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href=<%= new_user_session_path %>><i class="fa fa-facebook-square"></i> Login via Facebook</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
     <!--  flash messages -->
     <div class="container-fluid">
-      <br>
       <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
       <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
       <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
