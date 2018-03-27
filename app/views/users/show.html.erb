@@ -1,6 +1,15 @@
 <!--  user#show -->
 
 <!--  user profile information -->
-<h3>Name: <%= @user.name %></h3>
-<h3>Email: <%= @user.email %></h3>
+<div class="panel panel-default">
+  <div class="panel-heading">Profile</div>
+</div>
+<h4><%= @user.name %></h4>
+<h4>Email: <%= @user.email %></h4>
 <img src="<%= @user.image %>" width=50><br><br>
+<%= link_to "Update or Cancel Account", edit_user_registration_path, class: "btn btn-default" %><br><br><br>
+
+<!--  display user's stores -->
+<div class="panel panel-default">
+  <div class="panel-heading">Your Stores</div>
+</div>

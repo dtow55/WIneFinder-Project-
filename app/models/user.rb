@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :store
+  has_many :stores
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
