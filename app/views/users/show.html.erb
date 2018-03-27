@@ -1,0 +1,6 @@
+<h3><%= @user.name %></h3>
+<h3>Email: <%= @user.email %></h3>
+<img src="<%= @user.image %>">
+<h3>Store Name:</h3>
+<h3>Store Address:</h3><br>
+<%= link_to "Edit Store Information", edit_user_path(@user), class: "btn btn-default" %>
