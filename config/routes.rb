@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :stores, only: [:new, :create, :show, :edit, :update, :index]
   
   root 'application#home'
+  post 'users/:id/add_name', to: 'users#add_name', as: 'add_user_name'
 end

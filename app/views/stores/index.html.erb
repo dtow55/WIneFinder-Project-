@@ -1,13 +1,4 @@
 <!--  stores#index -->
 
 <!--  store information -->
-<% @stores.each do |store| %>
-  <h3>Store: <%= link_to store.name, store_path(store) %></h3>
-  <h3>Store Address: <%= store.address %></h3><br>
-<% end %>
-
-
-<!--  set up new store (if logged in) -->
-<% if current_user %>
-  <%= link_to "Set up a Store", new_user_store_path(current_user), class: "btn btn-default" %>
-<% end %>
+<%= render @stores %>

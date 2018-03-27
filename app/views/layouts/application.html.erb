@@ -19,8 +19,8 @@
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li> <%= link_to "Profile", user_path(current_user) %> </li>
-            <li> <%= link_to "Manage Stores", user_stores_path(current_user) %> </li>
           <% end %>
+          <li> <%= link_to "Stores", stores_path %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
