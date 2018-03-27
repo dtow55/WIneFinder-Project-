@@ -17,13 +17,12 @@
           <a class="navbar-brand text-primary" href="/">WineFinder</a>
         </div>
         <ul class="nav navbar-nav">
-          <% if user_signed_in? %>
-            <li> <%= link_to "Profile", user_path(current_user) %> </li>
-          <% end %>
           <li> <%= link_to "Stores", stores_path %> </li>
+          <li> <%= link_to "Wines" %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
+            <li><a href="<%= user_path(current_user) %>" ><span class="glyphicon glyphicon-user"></span> Profile</a></li>
             <li> <%= link_to destroy_user_session_path, method: "DELETE" do %><span class="glyphicon glyphicon-log-out"></span> Logout<% end %></li>
           <% else %>
             <li><a href="<%= new_user_registration_path %>" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

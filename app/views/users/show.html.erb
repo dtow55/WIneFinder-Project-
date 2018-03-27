@@ -4,12 +4,12 @@
 <div class="panel panel-default">
   <div class="panel-heading">Profile</div>
 </div>
+<img src="<%= @user.image %>" width=50><br>
 <%= form_tag add_user_name_path(@user), method: "post" do %>
   <strong>Name: </strong><%= text_field_tag 'user[name]', @user.name %>
   <%= submit_tag "Submit" %>
 <% end %>
-<strong>Email: </strong><%= @user.email %>
-<img src="<%= @user.image %>" width=50><br><br>
+<strong>Email: </strong><%= @user.email %><br>
 <%= link_to "Update or Cancel Account", edit_user_registration_path, class: "btn btn-default" %><br><br><br>
 
 <!--  display user's stores -->

@@ -1,6 +1,9 @@
 <!--  stores#show  -->
 
-<h3>Store Name: <%= @store.name %></h3>
-<h3>Address: <%= @store.address %></h3>
-<h3>Owner: <%= @store.user.name %></h3>
-<h3>Contact: <%= @store.user.email %></h3>
+<!--  store details  -->
+<h3><%= @store.name %></h3>
+<strong><%= @store.address %></strong><br>
+<strong>Owner: </strong><%= @store.user.name %><br>
+<strong>Contact: </strong><%= @store.user.email %><br>
+
+<!--  wines  -->
