@@ -17,8 +17,8 @@
           <a class="navbar-brand text-primary" href="/">WineFinder</a>
         </div>
         <ul class="nav navbar-nav">
-          <li> <%= link_to "Stores", stores_path %> </li>
-          <li> <%= link_to "Wines", wines_path %> </li>
+          <li> <%= link_to "All Stores", stores_path %> </li>
+          <li> <%= link_to "All Wines", wines_path %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
@@ -34,11 +34,13 @@
     </nav>
 
     <!--  flash messages -->
-    <div class="container-fluid">
-      <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-      <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-      <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-    </div><br>
+    <% if flash[:error] || flash[:notice] || flash[:alert] %>
+      <div class="container-fluid alert alert-info">
+        <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+        <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+        <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+      </div><br>
+    <% end %>
 
     <!--  content -->
     <div class="container-fluid">

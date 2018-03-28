@@ -6,7 +6,11 @@
 <strong>Owner: </strong><%= @store.user.name %><br>
 <strong>Contact: </strong><%= @store.user.email %><br><br>
 
-<!--  wines  -->
-<% if @store.user_id == current_user.id %>
+<!--  new wine button -->
+<% if (@store.user_id == current_user.id rescue nil) %>
   <%= link_to "List a Wine", new_store_wine_path(@store), class: "btn btn-default" %>
-<% end %>
+<% end %><br><br>
+
+<!--  display wines at this store-->
+<h3>Wines at this Store <span class="label label-default"><%= @store.wines.count %></span>:</h3>
+<%= render @store.wines %>

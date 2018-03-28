@@ -1,0 +1,12 @@
+<!--  wines#show -->
+
+<!--  wine information -->
+<h3><%= @wine.name %></h3>
+<strong>Type: </strong><%= @wine.color %><br>
+<strong>Varietal: </strong><%= @wine.grape %><br>
+<strong>Price: </strong>$<%= @wine.price %><br>
+<strong>Description: </strong><%= @wine.description %><br>
+
+<!--  where wine is sold -->
+<h3>Stores Selling this Wine:</h3>
+<%= render @wine.stores %>
