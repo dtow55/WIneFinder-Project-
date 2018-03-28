@@ -9,17 +9,23 @@ class WinesController < ApplicationController
   end
 
   def new
-    
+    if params[:store_id]
+      @wine = Wine.new()
+      @wine.store_ids << params[:store_id]
+    else
+      @wine = Wine.new()
+    end
   end
 
   def create
-
+    wine = Wine.create(wine_params)
+    redirect_to wine_path(wine)
   end
 
   private
 
   def wine_params
-    params[:wine].permit(:name, :description, :price, :type, :grape)
+    params[:wine].permit(:name, :description, :price, :type, :grape, :store_ids)
   end
 
 end
