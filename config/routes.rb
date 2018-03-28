@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
   
   resources :stores, only: [:new, :create, :show, :edit, :update, :index]
+
+  resources :wines, only: [:show, :index]
   
   root 'application#home'
   post 'users/:id/add_name', to: 'users#add_name', as: 'add_user_name'
