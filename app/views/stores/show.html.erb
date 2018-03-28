@@ -4,6 +4,9 @@
 <h3><%= @store.name %></h3>
 <strong><%= @store.address %></strong><br>
 <strong>Owner: </strong><%= @store.user.name %><br>
-<strong>Contact: </strong><%= @store.user.email %><br>
+<strong>Contact: </strong><%= @store.user.email %><br><br>
 
 <!--  wines  -->
+<% if @store.user_id == current_user.id %>
+  <%= link_to "List a Wine", new_store_wine_path(@store), class: "btn btn-default" %>
+<% end %>
