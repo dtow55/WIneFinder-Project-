@@ -10,6 +10,7 @@ class StoresController < ApplicationController
 
   def create
     store = Store.create(store_params)
+    flash[:notice] = "Store has been created"
     redirect_to store_path(store)
   end
 
@@ -30,6 +31,8 @@ class StoresController < ApplicationController
   end
 
   def update
+
+    flash[:notice] = "Store has been updated"
 
   end
 

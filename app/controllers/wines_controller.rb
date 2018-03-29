@@ -35,6 +35,7 @@ class WinesController < ApplicationController
   def update
     wine = Wine.find(params[:id])
     wine.update(wine_params)
+    flash[:notice] = "Wine has been updated"
     redirect_to wine_path(wine)
   end
 
