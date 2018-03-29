@@ -6,11 +6,15 @@
 <strong>Owner: </strong><%= @store.user.name %><br>
 <strong>Contact: </strong><%= @store.user.email %><br><br>
 
-<!--  new wine button -->
-<% if (@store.user_id == current_user.id rescue nil) %>
-  <%= link_to "List a Wine", new_store_wine_path(@store), class: "btn btn-default" %>
-<% end %><br><br>
+<!--  edit store button -->
+  <%= link_to("Edit Store", edit_store_path(@store), class: "btn btn-default") if store_owner_logged_in?(@store) %>
+<br><br>
 
 <!--  display wines at this store-->
-<h3>Wines at this Store <span class="label label-default"><%= @store.wines.count %></span>:</h3>
-<%= render @store.wines %>
+<h3>Wines at this Store <span class="label label-default"><%= @store.wines.count %></span>:
+  <!--  list new wine button  -->
+  <%= link_to("List a Wine", new_store_wine_path(@store), class: "btn btn-default pull-right") if store_owner_logged_in?(@store) %>
+</h3>
+<ul class="list-group">
+  <%= render @store.wines %>
+</ul>

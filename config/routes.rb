@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :wines, only: [:new]
   end
 
-  resources :wines, only: [:show, :index, :create]
+  resources :wines, only: [:show, :index, :create, :edit, :update]
   
   root 'application#home'
   post 'users/:id/add_name', to: 'users#add_name', as: 'add_user_name'
