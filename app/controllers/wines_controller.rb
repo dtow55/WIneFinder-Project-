@@ -27,9 +27,9 @@ class WinesController < ApplicationController
       redirect_to wine_path(wine)
     else
       @wine = Wine.new(wine_params)
-      if @wine.valid?
+      if @wine.save
         flash[:notice] = "Wine has been successfully listed"
-        redirect_to wine_path(wine)
+        redirect_to wine_path(@wine)
       else
         render :new
       end
