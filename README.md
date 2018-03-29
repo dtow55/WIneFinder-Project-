@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Description: 
 
-Things you may want to cover:
+Installation: 
 
-* Ruby version
+Contributors: 
 
-* System dependencies
+License Statement: 
+-See 'MIT-LICENSE' file in root directory for details
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
