@@ -31,9 +31,10 @@ class StoresController < ApplicationController
   end
 
   def update
-
+    store = Store.find(params[:id])
+    store.update(store_params)
     flash[:notice] = "Store has been updated"
-
+    redirect_to store_path(store)
   end
 
   private
