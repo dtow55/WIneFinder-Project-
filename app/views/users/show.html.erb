@@ -14,7 +14,7 @@
 
 <!--  display user's stores -->
 <div class="panel panel-default">
-  <div class="panel-heading">Your Stores</div>
+  <div class="panel-heading"><%= link_to "Your Stores", user_stores_path(@user) %></div>
 </div>
 <%= render @user.stores %>
 
