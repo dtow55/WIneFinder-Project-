@@ -13,6 +13,8 @@
   <%= f.text_area :description, size: "30x5" %><br>
   <%= f.fields_for :stores_wines do |s| %>
     <%= s.hidden_field :store_id %>
+    <%= s.label :inventory %>
+    <%= s.number_field :inventory %><br>
   <% end %>
   <%= f.submit %>
 <% end %>
