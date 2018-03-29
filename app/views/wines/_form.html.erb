@@ -1,0 +1,16 @@
+<!--  wines#form -->
+
+<%= form_for @wine do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :color %>
+  <%= f.text_field :color %><br>
+  <%= f.label "Varietal" %>
+  <%= f.text_field :grape %><br>
+  <%= f.label :price %>
+  <%= f.number_field :price, step: :any %><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, size: "30x5" %><br>
+  <%= f.hidden_field :store_ids %>
+  <%= f.submit "List Wine" %>
+<% end %>
