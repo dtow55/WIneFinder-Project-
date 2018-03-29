@@ -15,7 +15,7 @@ class WinesController < ApplicationController
   def new
     if params[:store_id]
       @wine = Wine.new()
-      @wine.store_ids << params[:store_id]
+      @wine.stores_wines.build(store_id: params[:store_id])
     else
       @wine = Wine.new()
     end
@@ -23,8 +23,9 @@ class WinesController < ApplicationController
 
   def create
     if @wine = Wine.find_by(name: wine_params[:name])
-      flash[:notice] = wine.add_store(wine_params[:store_ids])
-      redirect_to wine_path(wine)
+      flash[:notice] = @wine.add_store(wine_params[:stores_wines_attributes][:"0"][:store_id])
+      binding.pry
+      redirect_to wine_path(@wine)
     else
       @wine = Wine.new(wine_params)
       if @wine.save
@@ -50,7 +51,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params[:wine].permit(:name, :description, :price, :color, :grape, :store_ids)
+    params[:wine].permit(:name, :description, :price, :color, :grape, :store_ids, stores_wines_attributes: [:store_id])
   end
 
 end

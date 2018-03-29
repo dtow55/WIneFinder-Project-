@@ -1,6 +1,7 @@
 class Wine < ActiveRecord::Base
   has_many :stores_wines
   has_many :stores, through: :stores_wines
+  accepts_nested_attributes_for :stores_wines
 
   validates :name, :price, :grape, :description, presence: true
   validates :color, presence: true, inclusion: { in: %w(Red White), message: "Must be either 'Red' or 'White'"}
@@ -14,7 +15,8 @@ class Wine < ActiveRecord::Base
     if self.store_ids.include?(store_id)
       "This wine is already listed at the selected store"
     else
-      self.store_ids << store_id
+      binding.pry
+      self.stores << Store.find(store_id)
       self.save
       "Wine has been successfully listed"
     end
