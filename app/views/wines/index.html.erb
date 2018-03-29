@@ -1,5 +1,14 @@
 <!--  wines#index -->
 
+<!--  filter wines -->
+<%= form_tag(wines_path, method: "get") do %>
+  Filter by Varietal: 
+  <%= select_tag "varietal", options_from_collection_for_select(Wine.varietals, "itself", "itself"), include_blank: true %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+
+<!--  display wines -->
 <ul class="list-group">
   <%= render @wines %>
 </ul>

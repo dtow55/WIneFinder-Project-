@@ -17,4 +17,12 @@ class Wine < ActiveRecord::Base
     end
   end
 
+  def self.varietals
+    Wine.select(:grape).map(&:grape).uniq
+  end
+
+  def self.by_varietal(varietal)
+    Wine.where(grape: varietal)
+  end
+
 end
