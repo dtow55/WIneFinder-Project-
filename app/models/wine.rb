@@ -15,7 +15,6 @@ class Wine < ActiveRecord::Base
     if self.store_ids.include?(store_id)
       "This wine is already listed at the selected store"
     else
-      binding.pry
       self.stores << Store.find(store_id)
       self.save
       "Wine has been successfully listed"

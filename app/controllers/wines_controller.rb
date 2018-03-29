@@ -24,7 +24,6 @@ class WinesController < ApplicationController
   def create
     if @wine = Wine.find_by(name: wine_params[:name])
       flash[:notice] = @wine.add_store(wine_params[:stores_wines_attributes][:"0"][:store_id])
-      binding.pry
       redirect_to wine_path(@wine)
     else
       @wine = Wine.new(wine_params)
