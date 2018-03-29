@@ -5,18 +5,22 @@
   <div class="panel-heading">Profile</div>
 </div>
 <img src="<%= @user.image %>" width=50><br>
-<%= form_tag add_user_name_path(@user), method: "post" do %>
-  <strong>Name: </strong><%= text_field_tag 'user[name]', @user.name %>
-  <%= submit_tag "Submit" %>
+<% if own_user_page?(@user.id) %>
+  <%= form_tag add_user_name_path(@user), method: "post" do %>
+    <strong>Name: </strong><%= text_field_tag 'user[name]', @user.name %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+<% else %>
+  <strong>Name: </strong><%= @user.name %><br>
 <% end %>
 <strong>Email: </strong><%= @user.email %><br>
-<%= link_to "Update or Cancel Account", edit_user_registration_path, class: "btn btn-default" %><br><br><br>
+<%= link_to("Update or Cancel Account", edit_user_registration_path, class: "btn btn-default") if own_user_page?(@user.id) %><br><br><br>
 
 <!--  display user's stores -->
 <div class="panel panel-default">
-  <div class="panel-heading"><%= link_to "Your Stores", user_stores_path(@user) %></div>
+  <div class="panel-heading"><%= link_to "Stores", user_stores_path(@user) %></div>
 </div>
 <%= render @user.stores %>
 
 <!--  button to create new store -->
-<%= link_to "Set up a Store", new_user_store_path(current_user), class: "btn btn-default" %>
+<%= link_to("Set up a Store", new_user_store_path(current_user), class: "btn btn-default") if own_user_page?(@user.id) %>
