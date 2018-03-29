@@ -1,4 +1,21 @@
 <!--  stores#new  -->
 
+<!--  validation errors -->
+<% if @store.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@store.errors.count, "error") %>
+      prohibited this store from being saved:
+    </h2>
+ 
+    <ul>
+    <% @store.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!--  form -->
 <h2>New Store:</h2>
 <%= render partial: "form", locals: {store: @store} %>

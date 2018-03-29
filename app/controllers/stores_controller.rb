@@ -9,9 +9,14 @@ class StoresController < ApplicationController
   end
 
   def create
-    store = Store.create(store_params)
-    flash[:notice] = "Store has been created"
-    redirect_to store_path(store)
+    @store = Store.new(store_params)
+
+    if @store.save
+      flash[:notice] = "Store has been created"
+      redirect_to store_path(store)
+    else
+      render :new
+    end
   end
 
   def show
