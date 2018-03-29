@@ -2,6 +2,9 @@ class Wine < ActiveRecord::Base
   has_many :stores_wines
   has_many :stores, through: :stores_wines
 
+  validates :name, :price, :grape, :description, presence: true
+  validates :color, presence: true, inclusion: { in: %w(Red White), message: "Must be either 'Red' or 'White'"}
+
   def print
     "#{self.name} - #{self.grape} - $#{self.price}" 
   end

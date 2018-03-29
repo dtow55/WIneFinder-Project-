@@ -22,14 +22,18 @@ class WinesController < ApplicationController
   end
 
   def create
-    if wine = Wine.find_by(name: wine_params[:name])
+    if @wine = Wine.find_by(name: wine_params[:name])
       flash[:notice] = wine.add_store(wine_params[:store_ids])
+      redirect_to wine_path(wine)
     else
-      wine = Wine.create(wine_params)
-      flash[:notice] = "Wine has been successfully listed"
+      @wine = Wine.new(wine_params)
+      if @wine.valid?
+        flash[:notice] = "Wine has been successfully listed"
+        redirect_to wine_path(wine)
+      else
+        render :new
+      end
     end
-
-    redirect_to wine_path(wine)
   end
 
   def edit
