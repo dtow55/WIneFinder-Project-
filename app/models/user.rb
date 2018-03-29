@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :stores
+  has_many :wines, through: :stores
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
