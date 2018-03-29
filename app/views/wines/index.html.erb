@@ -5,8 +5,8 @@
   Filter by Varietal: 
   <%= select_tag "varietal", options_from_collection_for_select(Wine.varietals, "itself", "itself"), include_blank: true %>
   <%= submit_tag "Filter" %>
+  <%= link_to "Clear Filter", wines_path %>
 <% end %>
-
 
 <!--  display wines -->
 <ul class="list-group">
