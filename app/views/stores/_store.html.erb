@@ -3,7 +3,11 @@
 <ul class="list-group">
   <li class="list-group-item">
   <strong><%= link_to store.name, store_path(store) %></strong>
-  <span class="badge"><%= store.wines.count %> Wines</span><br>
+  <% if @wine %>
+    <span class="badge">Inventory: <%= @wine.inventory_by_store(store) %></span><br>
+  <% else %>
+    <span class="badge"><%= store.wines.count %> Wines</span><br>
+  <% end %>
   <strong><%= store.address %></strong><br>
   </li>
 </ul>

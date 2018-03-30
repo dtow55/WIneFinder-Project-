@@ -16,5 +16,5 @@
   <%= link_to("List a Wine", new_store_wine_path(@store), class: "btn btn-default pull-right") if store_owner_logged_in?(@store) %>
 </h3>
 <ul class="list-group">
-  <%= render @store.wines %>
+  <%= render @store.wines, locals: {store: @store} %>
 </ul>

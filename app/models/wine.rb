@@ -21,6 +21,10 @@ class Wine < ActiveRecord::Base
     end
   end
 
+  def inventory_by_store(store)
+    store.stores_wines.where(wine_id: self.id).pluck(:inventory)[0]
+  end
+
   def self.varietals
     Wine.select(:grape).map(&:grape).uniq
   end
