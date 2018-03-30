@@ -13,7 +13,7 @@ class StoresController < ApplicationController
 
     if @store.save
       flash[:notice] = "Store has been created"
-      redirect_to store_path(store)
+      redirect_to store_path(@store)
     else
       render :new
     end
