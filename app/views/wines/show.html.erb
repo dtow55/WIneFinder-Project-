@@ -3,7 +3,7 @@
 <!--  wine information -->
 <h3><%= @wine.name %>
   <!--  edit wine button -->
-  <%= link_to("Edit Wine", edit_wine_path(@wine), class: "btn btn-default pull-right") if user_signed_in? %>
+  <%= link_to("Edit Wine", edit_store_wine_path(@store, @wine), class: "btn btn-default pull-right") if user_signed_in? && @store%>
 </h3>
 <strong>Type: </strong><%= @wine.color %><br>
 <strong>Varietal: </strong><%= @wine.grape %><br>

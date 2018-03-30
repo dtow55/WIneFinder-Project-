@@ -2,6 +2,9 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
+    if params[:store_id]
+      @store = Store.find(params[:store_id])
+    end
   end
 
   def index
@@ -38,6 +41,9 @@ class WinesController < ApplicationController
 
   def edit
     @wine = Wine.find(params[:id])
+    if params[:store_id]
+      @store = Store.find(params[:store_id])
+    end
   end
 
   def update

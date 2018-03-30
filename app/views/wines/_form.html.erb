@@ -11,10 +11,12 @@
   <%= f.number_field :price, step: :any %><br>
   <%= f.label :description %><br>
   <%= f.text_area :description, size: "30x5" %><br>
-  <%= f.fields_for :stores_wines do |s| %>
-    <%= s.hidden_field :store_id %>
-    <%= s.label :inventory %>
-    <%= s.number_field :inventory %><br>
+  <% if !@store %>
+    <%= f.fields_for :stores_wines do |s| %>
+      <%= s.hidden_field :store_id %>
+      <%= s.label :inventory %>
+      <%= s.number_field :inventory %><br>
+    <% end %>
   <% end %>
   <%= f.submit %>
 <% end %>

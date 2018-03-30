@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   
   resources :stores, only: [:create, :show, :edit, :update, :index] do 
-    resources :wines, only: [:new, :show]
+    resources :wines, only: [:new, :show, :edit]
   end
 
   resources :wines, only: [:show, :index, :create, :edit, :update]
