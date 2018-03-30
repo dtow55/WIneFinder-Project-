@@ -22,11 +22,11 @@ class WinesController < ApplicationController
   end
 
   def create
-    if @wine = Wine.find_by(name: wine_params[:name])
-      flash[:notice] = @wine.add_store(wine_params[:stores_wines_attributes][:"0"][:store_id])
+    if @wine = Wine.find_by(name: wine_new_params[:name])
+      flash[:notice] = @wine.add_store(wine_new_params[:stores_wines_attributes][:"0"][:store_id])
       redirect_to wine_path(@wine)
     else
-      @wine = Wine.new(wine_params)
+      @wine = Wine.new(wine_new_params)
       if @wine.save
         flash[:notice] = "Wine has been successfully listed"
         redirect_to wine_path(@wine)
@@ -41,16 +41,21 @@ class WinesController < ApplicationController
   end
 
   def update
+    binding.pry
     wine = Wine.find(params[:id])
-    wine.update(wine_params)
+    wine.update(wine_edit_params)
     flash[:notice] = "Wine has been updated"
     redirect_to wine_path(wine)
   end
 
   private
 
-  def wine_params
+  def wine_new_params
     params[:wine].permit(:name, :description, :price, :color, :grape, stores_wines_attributes: [:store_id, :inventory])
+  end
+
+  def wine_edit_params
+    params[:wine].permit(:name, :description, :price, :color, :grape)
   end
 
 end

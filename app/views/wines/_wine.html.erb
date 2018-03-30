@@ -1,8 +1,10 @@
 <!--  wines#wine  -->
 
 <li class="list-group-item">
-<strong><%= link_to wine.print, wine_path(wine) %></strong>
 <% if @store %>
+  <strong><%= link_to wine.print, store_wine_path(@store, wine) %></strong>
   <span class="badge">Inventory: <%= wine.inventory_by_store(@store) %></span><br>
+<% else %>
+  <strong><%= link_to wine.print, wine_path(wine) %></strong>
 <% end %>
 </li>
