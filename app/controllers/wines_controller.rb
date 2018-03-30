@@ -26,7 +26,7 @@ class WinesController < ApplicationController
 
   def create
     if @wine = Wine.find_by(name: wine_new_params[:name])
-      flash[:notice] = @wine.add_store(wine_new_params[:stores_wines_attributes][:"0"][:store_id])
+      flash[:notice] = @wine.add_store(wine_new_params)
       redirect_to wine_path(@wine)
     else
       @wine = Wine.new(wine_new_params)
@@ -47,9 +47,7 @@ class WinesController < ApplicationController
   end
 
   def update
-    binding.pry
     wine = Wine.find(params[:id])
-    wine.update(wine_edit_params)
     flash[:notice] = "Wine has been updated"
     redirect_to wine_path(wine)
   end
