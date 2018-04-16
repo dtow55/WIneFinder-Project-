@@ -3,6 +3,9 @@ function loadComments(element) {
   $.get(`${element.dataset.wine_id}/comments`, function(response) {
     const comments = JSON.parse(response);
     console.log(comments);
-    $("#show-comments").text('yes');
+
+    let template = Handlebars.compile($("load-comments-template").innerHTML);
+    let result = template(comments);
+    $("#show-comments").innerHTML += result;
   });
 }
