@@ -1,3 +1,3 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :string, :wine_id
+  attributes :id, :content, :wine_id
 end
