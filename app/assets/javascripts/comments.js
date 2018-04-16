@@ -4,8 +4,8 @@ function loadComments(element) {
     const comments = JSON.parse(response);
     console.log(comments);
 
-    //let template = Handlebars.compile($("load-comments-template").innerHTML);
-    //let result = template(comments);
-    //$("#show-comments").innerHTML += result;
+    let template = Handlebars.compile($("#load-comments-template").html());
+    let result = template(comments);
+    $("#show-comments").html(result);
   });
 }
