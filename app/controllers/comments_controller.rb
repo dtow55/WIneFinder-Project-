@@ -23,13 +23,11 @@ class CommentsController < ApplicationController
     end
   end
 
-  def index
-    if params[:wine_id]
-      @wine = Wine.find(params[:wine_id])
-      @comments = @wine.comments
-    else 
-      @comment = Comment.all
-    end
+  def index 
+    # only route available is an index route nested in wine#show route
+    wine = Wine.find(params[:wine_id]) 
+    @comments = wine.comments
+    render json: @comments, status: 200
   end
 
   private
