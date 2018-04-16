@@ -10,9 +10,9 @@
 <strong>Price: </strong>$<%= @wine.price %><br>
 <strong>Description: </strong><%= @wine.description %><br>
 
-<!--  post a comment -->
+<!--  comments  -->
 <br>
-<a href=<%=wine_comments_path(@wine)%>>See Comments</a><br>
+<a href="#" onclick="comments()">See Comments</a><br>
 <a href=<%=new_wine_comment_path(@wine)%>>Post a Comment</a>
 
 <!--  where wine is sold -->
