@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require comments
+//= require handlebars.js
 //= require_tree .
