@@ -1,0 +1,41 @@
+class CommentsController < ApplicationController
+
+  def new 
+    if params[:wine_id]
+      @wine = Wine.find(params[:wine_id])
+      @comment = @wine.comments.build
+    else
+      @comment = Comment.new
+    end
+  end
+
+  def create
+    @comment = Comment.create(comment_params)
+    redirect_to comment_path(@comment)
+  end
+
+  def show
+    if params[:wine_id]
+      @wine = Wine.find(params[:wine_id])
+      @comment = Comment.find(params[:comment_id])
+    else 
+      @comment = Comment.find(params[:id])
+    end
+  end
+
+  def index
+    if params[:wine_id]
+      @wine = Wine.find(params[:wine_id])
+      @comments = @wine.comments
+    else 
+      @comment = Comment.all
+    end
+  end
+
+  private
+
+  def comment_params
+    params[:comment].permit(:content, :wine_id)
+  end
+
+end

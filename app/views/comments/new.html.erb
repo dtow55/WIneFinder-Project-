@@ -1,0 +1,10 @@
+<h1>New Comment</h1>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <% if @wine %>
+    <%= f.hidden_field :wine_id %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

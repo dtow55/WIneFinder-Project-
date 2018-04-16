@@ -1,4 +1,5 @@
 class Wine < ActiveRecord::Base
+  has_many :comments
   has_many :stores_wines
   has_many :stores, through: :stores_wines
   accepts_nested_attributes_for :stores_wines
