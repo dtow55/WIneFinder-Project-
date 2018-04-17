@@ -1,4 +1,4 @@
-function storeIndex() {
+function showStores() {
   $.get("/stores.json", function (response) {
     const stores = JSON.parse(response);
     
