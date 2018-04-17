@@ -1,4 +1,6 @@
 function showStores() {
+  Handlebars.registerPartial('storePartial', $("#store-partial").html());
+  
   $.get("/stores.json", function (response) {
     const stores = JSON.parse(response);
     

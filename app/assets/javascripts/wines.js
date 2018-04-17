@@ -8,6 +8,8 @@ function showWines() {
 }
 
 function showWine(element) {
+  Handlebars.registerPartial('storePartial', $("#store-partial").html());
+
   $.get(`wines/${element.dataset.id}.json`, function(response) {
     wine = JSON.parse(response);
     let template = Handlebars.compile($("#show-wine-template").html())
