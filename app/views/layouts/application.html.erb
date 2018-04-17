@@ -47,12 +47,25 @@
     <%= yield %>
     </div>
 
-    <!--  Handlebars template: stores#index   -->
-    <script id="store-index-template" type="text/x-handlebars-template">
+    <!--  Handlebars template: showStores (index view)   -->
+    <script id="show-stores-template" type="text/x-handlebars-template">
       {{#each this}}	
         <ul class="list-group">
           <li class="list-group-item">
           <strong><a href="stores/{{ id }}">{{ name }}</a></strong>
+          <br>
+          <strong>{{ address }}</strong><br>
+          </li>
+        </ul>
+      {{/each}}
+    </script>	
+    
+    <!--  Handlebars template: showWines (index view)  -->
+    <script id="show-wines-template" type="text/x-handlebars-template">
+      {{#each this}}	
+        <ul class="list-group">
+          <li class="list-group-item">
+          <strong><a href="wines/{{ id }}">{{ name }}</a></strong>
           <br>
           <strong>{{ address }}</strong><br>
           </li>
