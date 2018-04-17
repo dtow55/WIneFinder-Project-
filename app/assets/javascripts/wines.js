@@ -8,5 +8,10 @@ function showWines() {
 }
 
 function showWine(element) {
-
+  $.get(`wines/${element.dataset.id}.json`, function(response) {
+    wine = JSON.parse(response);
+    let template = Handlebars.compile($("#show-wine-template").html())
+    let result = template(wine);
+    $("#main").html(result);
+  });
 }
