@@ -8,14 +8,31 @@ function loadComments(element) {
   });
 }
 
-function newCommentForm() {
+function newCommentForm(element) {
+  wineId = element.dataset.wineid;
+
   let template = Handlebars.compile($("#comment-form-template").html());
   let result = template();
   $("#post-comment").html(result);
+  
+
+  $('form').submit(function(event) {
+    //prevent form from submitting the default way
+    event.preventDefault();
+    
+    let values = $(this).serialize();
+    console.log(values);
+
+    let posting = $.post(`/comments`, values);
+  });
 }
 
 function postComment() {
-  console.log('yes');
+  let comment = {content: document.getElementsByName("content")[0].value}
+
+  $.post("/comments", comment, function(response) {
+    console.log(response);
+  });
 }
 
 
