@@ -13,6 +13,12 @@ class WinesController < ApplicationController
     else
       @wines = Wine.all
     end
+
+     # can render in either HTML or JSON
+     respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @wines}
+    end
   end
 
   def new
