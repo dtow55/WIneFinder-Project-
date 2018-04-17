@@ -8,3 +8,7 @@ function loadComments(element) {
     $("#show-comments").html(result);
   });
 }
+
+function displayNewForm() {
+  
+}
