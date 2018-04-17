@@ -1,4 +1,3 @@
-// display comments index on wines/:id/comments nested index 
 function loadComments(element) {
   $.get(`${element.dataset.wine_id}/comments`, function(response) {
     const comments = JSON.parse(response);
@@ -14,4 +13,10 @@ function newCommentForm() {
   let result = template();
   $("#post-comment").html(result);
 }
+
+function postComment() {
+  console.log('yes');
+}
+
+
 

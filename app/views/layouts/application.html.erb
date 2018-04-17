@@ -47,11 +47,6 @@
     <%= yield %>
     </div>
 
-        <form id="comment-form" onsubmit="createComment();return false;">
-        Content: <input type="text" name="content">
-        <input type="submit" value="Post Comment">
-      </form>
-
     <!--  ********** HANDLEBARS TEMPLATES **********   -->
 
     <!--  Handlebars template: showStores (index view)   -->
@@ -113,7 +108,7 @@
 
     <!--  new comment template  -->
     <script id="comment-form-template" type="text/x-handlebars-template">
-      <form id="comment-form" onsubmit="createComment()">
+      <form id="comment-form" onsubmit="postComment()">
         Content: <input type="text" name="content">
         <input type="submit" value="Post Comment">
       </form>
