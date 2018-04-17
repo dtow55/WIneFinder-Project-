@@ -43,10 +43,23 @@
     <% end %>
 
     <!--  content -->
-    <div class="container-fluid">
+    <div id="main" class="container-fluid">
     <%= yield %>
     </div>
 
+    <!--  Handlebars template: stores#index   -->
+    <script id="store-index-template" type="text/x-handlebars-template">
+      {{#each this}}	
+        <ul class="list-group">
+          <li class="list-group-item">
+          <strong><a href="stores/{{ id }}">{{ name }}</a></strong>
+          <br>
+          <strong>{{ address }}</strong><br>
+          </li>
+        </ul>
+      {{/each}}
+    </script>	
+    
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
   </body>
 </html>

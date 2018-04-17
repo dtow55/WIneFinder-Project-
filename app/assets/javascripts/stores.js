@@ -1,5 +1,9 @@
 function storeIndex() {
   $.get("/stores.json", function (response) {
-    console.log(response);
+    const stores = JSON.parse(response);
+    
+    let template = Handlebars.compile($("#store-index-template").html());
+    let result = template(stores);
+    $("#main").html(result);
   });
 }
