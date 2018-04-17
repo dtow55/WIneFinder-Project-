@@ -10,5 +10,8 @@ function loadComments(element) {
 }
 
 function newCommentForm() {
-  
+  let template = Handlebars.compile($("#comment-form-template").html());
+  let result = template();
+  $("#post-comment").html(result);
 }
+

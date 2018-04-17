@@ -47,6 +47,13 @@
     <%= yield %>
     </div>
 
+        <form id="comment-form" onsubmit="createComment();return false;">
+        Content: <input type="text" name="content">
+        <input type="submit" value="Post Comment">
+      </form>
+
+    <!--  ********** HANDLEBARS TEMPLATES **********   -->
+
     <!--  Handlebars template: showStores (index view)   -->
     <script id="show-stores-template" type="text/x-handlebars-template">
       {{#each this}}	
@@ -91,22 +98,25 @@
           {{#each comments}}	
             {{ content }}<br>
           {{/each}}
-        <a onclick="newCommentForm()">Post a Comment</a>
-        <!--  new comment form  -->
-        <div id="comment-form">
+        <div id="post-comment">
+          <a onclick="newCommentForm()">Post a Comment</a>
           <!--  new comment form to be appended here   -->
         </div>
       </div>
 
-      <!--  stores where wine is sold -->
+      <!--  stores where wine is sold  -->
       <h3>Stores Selling this Wine:</h3>
         {{#each stores}}	
           {{> storePartial }}
         {{/each}}
     </script>	
 
-    <script id="new-comment-template" type="text/x-handlebars-template">
-    
+    <!--  new comment template  -->
+    <script id="comment-form-template" type="text/x-handlebars-template">
+      <form id="comment-form" onsubmit="createComment()">
+        Content: <input type="text" name="content">
+        <input type="submit" value="Post Comment">
+      </form>
     </script>	
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
