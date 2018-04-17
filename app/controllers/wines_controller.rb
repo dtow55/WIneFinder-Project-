@@ -5,6 +5,12 @@ class WinesController < ApplicationController
     if params[:store_id]
       @store = Store.find(params[:store_id])
     end
+
+    # can render in either HTML or JSON
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @wine}
+    end
   end
 
   def index
@@ -14,8 +20,8 @@ class WinesController < ApplicationController
       @wines = Wine.all
     end
 
-     # can render in either HTML or JSON
-     respond_to do |format|
+    # can render in either HTML or JSON
+    respond_to do |format|
       format.html {render :index}
       format.json {render json: @wines}
     end

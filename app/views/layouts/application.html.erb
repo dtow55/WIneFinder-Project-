@@ -65,7 +65,7 @@
       <ul class="list-group">
         {{#each this}}	
           <li class="list-group-item">
-            <strong><a href="wines/{{ id }}">{{ print }}</a></strong>
+            <strong><a onclick="showWine(this)" data-id="{{id}}">{{ print }}</a></strong>
           </li>
         {{/each}}
       </ul>
