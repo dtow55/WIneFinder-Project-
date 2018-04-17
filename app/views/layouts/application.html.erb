@@ -83,9 +83,9 @@
       <!--  comments  -->
       <div>
         <h3>Comments:</h3>
-        <div id="show-comments">
-
-        </div>
+          {{#each comments}}	
+            {{ content }}<br>
+          {{/each}}
         <a href="wines/{{id}}/comments/new">Post a CommentEDIT THIS</a>
       </div>
 
