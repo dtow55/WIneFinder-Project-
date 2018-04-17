@@ -29,6 +29,12 @@ class StoresController < ApplicationController
     else
       @stores = Store.all
     end
+
+    # render in either HTML or JSON
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @stores}
+    end
   end
 
   def edit
