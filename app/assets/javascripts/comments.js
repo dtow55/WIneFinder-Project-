@@ -9,6 +9,6 @@ function loadComments(element) {
   });
 }
 
-function displayNewForm() {
+function newCommentForm() {
   
 }
