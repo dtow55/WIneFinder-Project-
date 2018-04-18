@@ -26,14 +26,3 @@ function newCommentForm(element) {
     let posting = $.post(`/comments`, values);
   });
 }
-
-function postComment() {
-  let comment = {content: document.getElementsByName("content")[0].value}
-
-  $.post("/comments", comment, function(response) {
-    console.log(response);
-  });
-}
-
-
-
