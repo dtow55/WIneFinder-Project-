@@ -111,8 +111,8 @@
     <!--  new comment template  -->
     <script id="comment-form-template" type="text/x-handlebars-template">
       <form id="comment-form">
-        Content: <input type="text" name="content">
-        <input type="hidden" name="wine_id" value="{{this}}"> <!--  'this' is the wineId passed in  -->
+        Content: <input type="text" name="comment[content]">
+        <input type="hidden" name="comment[wine_id]" value="{{this}}"> <!--  'this' is the wineId passed in  -->
         <input type="submit" value="Post Comment">
       </form>
     </script>
