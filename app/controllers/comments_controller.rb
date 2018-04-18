@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(content: params[:content], wine_id: params[:wine_id])
-    redirect_to comment_path(@comment)
+    render json: @comment
   end
 
   def show
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     # only route available is an index route nested in wine#show route
     wine = Wine.find(params[:wine_id]) 
     @comments = wine.comments
-    render json: @comments, status: 200
+    render json: @comments
   end
 
   private

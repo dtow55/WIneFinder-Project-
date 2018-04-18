@@ -22,6 +22,8 @@ function newCommentForm(element) {
     
     let values = $(this).serialize();
 
-    let posting = $.post(`/comments`, values);
+    let posting = $.post(`/comments`, values, function(response) {
+      console.log(response);
+    });
   });
 }
