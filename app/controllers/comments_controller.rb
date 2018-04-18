@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(comment_params)
+    @comment = Comment.create(content: params[:content], wine_id: params[:wine_id])
     redirect_to comment_path(@comment)
   end
 

@@ -12,7 +12,7 @@ function newCommentForm(element) {
   wineId = element.dataset.wineid;
 
   let template = Handlebars.compile($("#comment-form-template").html());
-  let result = template();
+  let result = template(wineId);
   $("#post-comment").html(result);
   
 
@@ -21,7 +21,6 @@ function newCommentForm(element) {
     event.preventDefault();
     
     let values = $(this).serialize();
-    console.log(values);
 
     let posting = $.post(`/comments`, values);
   });
