@@ -4,7 +4,6 @@ function createComment() {
       this.content = content;
     }
     print() {
-      console.log(this.content);
       return this.content;
     }
   }
