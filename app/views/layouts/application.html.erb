@@ -90,9 +90,11 @@
       <!--  comments  -->
       <div>
         <h3>Comments:</h3>
-          {{#each comments}}	
-            {{ content }}<br>
-          {{/each}}
+          <div id="show-comments">
+            {{#each comments}}	
+              {{ content }}<br>
+            {{/each}}
+          </div> 
         <div id="post-comment">
           <a onclick="newCommentForm(this)" data-wineid="{{id}}">Post a Comment</a>
           <!--  new comment form to be appended here   -->

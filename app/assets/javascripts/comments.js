@@ -23,7 +23,8 @@ function newCommentForm(element) {
     let values = $(this).serialize();
 
     let posting = $.post(`/comments`, values, function(response) {
-      console.log(response);
+      comment = JSON.parse(response);
+      $("#show-comments").append(`${comment.content}<br>`)
     });
   });
 }
