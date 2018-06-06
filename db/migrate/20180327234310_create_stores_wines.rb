@@ -1,4 +1,4 @@
-class CreateStoreWines < ActiveRecord::Migration[5.1]
+class CreateStoresWines < ActiveRecord::Migration[5.1]
   def change
     create_join_table :stores, :wines do |t|
       t.integer :store_id
