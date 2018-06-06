@@ -5,8 +5,11 @@
 
 ## Installation
 -Fork and clone repo
+
 -Run 'bundle install' to install all necessary gems
+
 -Run 'rake db:migrate' in console 
+
 -Ensure you run your server as an HTTPS secure connection in order for Facebook Login functionality to work
 
 ## Contributors
